@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#0f172a,#111827,#1e293b,#0f172a);
+    background-size:400% 400%;
+    animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.login-box{
+    width:350px;
+    padding:35px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 30px rgba(0,0,0,0.4);
+}
+
+.login-box h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#38bdf8;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:#1e293b;
+    color:white;
+    font-size:15px;
+}
+
+.input-box input:focus{
+    box-shadow:0 0 15px rgba(56,189,248,0.5);
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#38bdf8;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0ea5e9;
+    transform:scale(1.03);
+}
+
+.message{
+    text-align:center;
+    margin-bottom:15px;
+    font-size:14px;
+    display:none;
+}
+
+.error{
+    color:#ef4444;
+}
+
+.success{
+    color:#22c55e;
+}
+
+.demo{
+    margin-top:20px;
+    text-align:center;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-box">
+
+<h1>🔐 Admin Login</h1>
+
+<div id="error" class="message error">
+Invalid Username or Password
+</div>
+
+<div id="success" class="message success">
+Login Successful...
+</div>
+
+<div class="input-box">
+<input type="text" id="username" placeholder="Enter Username">
+</div>
+
+<div class="input-box">
+<input type="password" id="password" placeholder="Enter Password">
+</div>
+
+<button class="btn" onclick="login()">
+Login
+</button>
+
+<div class="demo">
+Username: <b>admin</b><br>
+Password: <b>admin</b>
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+const username =
+document.getElementById("username").value;
+
+const password =
+document.getElementById("password").value;
+
+const error =
+document.getElementById("error");
+
+const success =
+document.getElementById("success");
+
+error.style.display = "none";
+success.style.display = "none";
+
+if(username === "admin" && password === "admin"){
+
+success.style.display = "block";
+
+setTimeout(()=>{
+
+window.location.href = "home.html";
+
+},1000);
+
+}else{
+
+error.style.display = "block";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
